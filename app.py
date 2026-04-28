@@ -183,7 +183,7 @@ if __name__ == "__main__":
     print("Starting server on port 3000")
     uvicorn.run(
         sio_app,
-        host="p.xy-host001.servers.localhost", 
+        host="0.0.0.0", 
         port=3000,
         headers=[("Server", "p.xy")],
         server_header=False
