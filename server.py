@@ -23,6 +23,11 @@ app.mount("/cache", StaticFiles(directory="cache"), name="cache")
 @app.get("/")
 async def index():
     return FileResponse("public/index.html")
+# Funny note: during developpment, I fetched socket.io directly from jsdelivr.net, I made more than 200 requests, due to that, I prefer adding it to the repo
+# and fetch it this way.
+@app.get("/socket.js")
+async def socketjsfile():
+    return FileResponse("public/socket.io.min.js")
 
 # =======================================================
 # SMART SERVER: Catches broken relative URLs (from CSS/JS) 
@@ -175,5 +180,11 @@ async def handle_proxy_request(sid, target_url):
             await browser.close()
 
 if __name__ == "__main__":
-    print("Starting server on http://localhost:3000")
-    uvicorn.run(sio_app, host="127.0.0.1", port=3000)
+    print("Starting server on port 3000")
+    uvicorn.run(
+        sio_app,
+        host="p.xy-host001.servers.localhost", 
+        port=3000,
+        headers=[("Server", "p.xy")],
+        server_header=False
+    )
