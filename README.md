@@ -20,3 +20,8 @@ The last command will occupy around 300mBs, it will be able to be used in your w
 python app.py
 ```
 That command will launch the app in the port 3000, if you want to change it, you have to modify the line 187 in app.py.
+# To-do
+* Implement auto proxying when detecting possible 404s in /cache/* requests.
+* Fix JavaScript fetching to other domains (by intercepting requests).
+* Fix window.location.replace() confusing the proxy.
+* Fix weird and unusual requests to /asset.png instead of /cache/originalhost.com/asset.png
