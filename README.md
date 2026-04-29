@@ -25,3 +25,4 @@ That command will launch the app in the port 3000, if you want to change it, you
 * Fix JavaScript fetching to other domains (by intercepting requests).
 * Fix window.location.replace() confusing the proxy.
 * Fix weird and unusual requests to /asset.png instead of /cache/originalhost.com/asset.png
+* Fix requests to ex. github.com/Fifthoply/p.xy/tree/main (not exclusive to Github) saving the file as 'main' instead of 'main.html'
